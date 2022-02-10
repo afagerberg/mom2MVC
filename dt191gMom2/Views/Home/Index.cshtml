@@ -1,0 +1,143 @@
+@model List<dt191gMoment2.Models.ScheduleModel>
+@{
+    ViewData["Title"] = "WOS - Startsida";
+}
+
+<h2>Mitt träningsschema</h2>
+<p class="schedMessage">@ViewBag.newcourse</p>
+<p class="schedMessage">@ViewBag.text</p>
+
+<div class="schedule">
+    <div class="scheduleday">
+        <h3>Måndag</h3>
+        
+        <ul>
+            @if(Model != null){
+
+                var objects = Model.OrderBy(workout => workout.Time);
+   
+                @foreach(var workout in objects){
+
+                    @if(workout.DayOfWeek == "Måndag"){
+                    
+                        <li><strong> @workout.WorkoutName</strong> kl @workout.Time<br> @workout.DegreeDifficulty av 5 i svårighetsgrad</li>
+                    }
+                }
+            }
+
+        </ul>
+    </div>
+
+    <div class="scheduleday">
+        <h3>Tisdag</h3>
+        <ul>
+            @if(Model != null){
+
+                var objects = Model.OrderBy(workout => workout.Time);
+   
+                @foreach(var workout in objects){
+
+                    @if(workout.DayOfWeek == "Tisdag"){
+                       <li><strong> @workout.WorkoutName</strong> kl @workout.Time<br> @workout.DegreeDifficulty av 5 i svårighetsgrad</li>
+                    }
+                }
+            }
+
+        </ul>
+    </div>
+
+    <div class="scheduleday">
+        <h3>Onsdag</h3>
+        <ul>
+            @if(Model != null){
+                
+                var objects = Model.OrderBy(workout => workout.Time);
+   
+                @foreach(var workout in objects){
+
+                    @if(workout.DayOfWeek == "Onsdag"){
+                    
+                        <li><strong> @workout.WorkoutName</strong> kl @workout.Time<br> @workout.DegreeDifficulty av 5 i svårighetsgrad</li>
+                    }
+                }
+            }
+
+        </ul>
+    </div>
+
+    <div class="scheduleday">
+        <h3>Torsdag</h3>
+        <ul>
+            @if(Model != null){
+
+                var objects = Model.OrderBy(workout => workout.Time);
+   
+                @foreach(var workout in objects){
+
+                    @if(workout.DayOfWeek == "Torsdag"){
+                        <li><strong> @workout.WorkoutName</strong> kl @workout.Time<br> @workout.DegreeDifficulty av 5 i svårighetsgrad</li>
+                    }
+                }
+            }
+
+        </ul>
+    </div>
+
+    <div class="scheduleday">
+        <h3>Fredag</h3>
+        <ul>
+            @if(Model != null){
+
+                var objects = Model.OrderBy(workout => workout.Time);
+   
+                @foreach(var workout in objects){
+
+                    @if(workout.DayOfWeek == "Fredag"){
+                        <li><strong> @workout.WorkoutName</strong> kl @workout.Time<br> @workout.DegreeDifficulty av 5 i svårighetsgrad</li>
+                    }
+                }
+            }
+
+        </ul>
+    </div>
+
+    <div class="scheduleday">
+        <h3>Lördag</h3>
+        <ul>
+            @if(Model != null){
+
+                var objects = Model.OrderBy(workout => workout.Time);
+   
+                @foreach(var workout in objects){
+
+                    @if(workout.DayOfWeek == "Lördag"){
+                        <li><strong> @workout.WorkoutName</strong> kl @workout.Time<br> @workout.DegreeDifficulty av 5 i svårighetsgrad</li>
+                    }
+                }
+            }
+
+        </ul>
+    </div>
+
+    <div class="scheduleday">
+        <h3>Söndag</h3>
+        <ul>
+            @if(Model != null){
+
+                var objects = Model.OrderBy(workout => workout.Time);
+   
+                @foreach(var workout in objects){
+
+                    @if(workout.DayOfWeek == "Söndag"){
+                        <li><strong> @workout.WorkoutName</strong> kl @workout.Time<br> @workout.DegreeDifficulty av 5 i svårighetsgrad</li>
+                    }
+                }
+            }
+
+
+        </ul>
+    </div>
+</div>
+
+@await Html.PartialAsync("_ClockDate")
+

@@ -1,0 +1,13 @@
+﻿    <div id="clock">
+        @{
+            var currenttime = DateTime.Now.ToShortTimeString();
+            var day= DateTime.Now.ToString("dddd");
+            var date= DateTime.Now.ToString("d MMMM yyyy");
+            
+        }
+
+    
+    <p>@day kl @currenttime den @date </p>
+    
+
+    </div>

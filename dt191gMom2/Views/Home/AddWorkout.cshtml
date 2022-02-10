@@ -1,0 +1,52 @@
+@model dt191gMoment2.Models.ScheduleModel
+
+@{
+    ViewData["Title"] = "WOS - Lägg till träningstillfälle";
+}
+
+<h2>Lägg till ett träningstillfälle</h2>
+<p class="schedMessage">@ViewData["Message"]</p>
+<form method="post">
+    <label  asp-for="WorkoutName"></label><br>
+    <input type="text" asp-for="WorkoutName" />
+    <span asp-validation-for="WorkoutName"></span>
+    <br>
+    <label>Välj veckodag för träningstillfälle</label>
+    <div id="weekbox">
+        <label>Måndag
+        <input type="radio" asp-for="DayOfWeek" id="mon" value="Måndag" />
+        </label>
+        <label>Tisdag
+        <input type="radio" asp-for="DayOfWeek" id="tis" value="Tisdag" />
+        </label>
+        <label>Onsdag
+        <input type="radio" asp-for="DayOfWeek" id="ons" value="Onsdag" />
+        </label>
+        <label>Torsdag
+        <input type="radio" asp-for="DayOfWeek" id="tors" value="Torsdag" />
+        </label>
+        <label>Fredag
+        <input type="radio" asp-for="DayOfWeek" id="fre" value="Fredag" />
+        </label>
+        <label>Lördag
+        <input type="radio" asp-for="DayOfWeek" id="lor" value="Lördag" />
+        </label>
+        <label>Söndag
+        <input type="radio" asp-for="DayOfWeek" id="sond" value="Söndag" />
+        </label>
+    </div>
+    <span asp-validation-for="DayOfWeek"></span>
+    <br>
+    <label asp-for="Time"></label><br>
+    <input type="time" asp-for="Time" />
+    <span asp-validation-for="Time"></span>
+    <br>
+    <label asp-for="DegreeDifficulty"></label><br>
+    <input type="number" asp-for="DegreeDifficulty" value="0"/>
+    <span asp-validation-for="DegreeDifficulty"></span> 
+    <br>
+    <input type="submit" value="Lägg till">
+    
+</form>
+
+@await Html.PartialAsync("_ClockDate")

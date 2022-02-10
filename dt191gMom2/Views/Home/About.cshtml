@@ -1,0 +1,21 @@
+@model List<dt191gMoment2.Models.ScheduleModel>
+@{
+    ViewData["Title"] = "WOS - Om min träning";
+}
+
+<h2>Om min träning</h2>
+
+<div class="about">
+    @if(Model != null) {
+        <p class="countworkouts">Antal träningstillfällen i mitt schema: <strong> @Model.Count träningstillfällen</strong> </p>
+
+        var average = Model.Average(workout => workout.DegreeDifficulty);
+        
+        <p class="averageDifficulty">Medelvärdet för min svårighetsgrad:<strong> @Math.Round(average,1) av 5</strong></p>
+    }else{
+        <p class="countworkouts">Antal träningstillfällen i mitt schema:<strong> 0 träningstillfällen</strong> </p>
+        <p class="averageDifficulty">Medelvärdet för min svårighetsgrad ligger på:<strong> 0 av 5</strong></p>
+    }
+</div>
+
+@await Html.PartialAsync("_ClockDate")
